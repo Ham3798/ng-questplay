@@ -14,7 +14,7 @@ contract GreatScribe {
         results = new bytes[](calls.length);
         for (uint256 i = 0; i < calls.length; i++) {
             (bool success, bytes memory data) = archives.staticcall(calls[i]);
-            require(success, "GreatScribe: Call failed");
+            require(success, "Call not processed correctly");
             results[i] = data;
         }
         return results;
@@ -32,7 +32,7 @@ contract GreatScribe {
         results = new bytes[](calls.length);
         for (uint256 i = 0; i < calls.length; i++) {
             (bool success, bytes memory data) = archives.call(calls[i]);
-            require(success, "GreatScribe: Call failed");
+            require(success, "Call not processed correctly");
             results[i] = data;
         }
         return results;
